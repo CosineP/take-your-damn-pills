@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/static/styles.css">
+
+    <title>Take Your Damn Pills!</title>
+  </head>
+  <body class="text-center">
+    <ul class="nav nav-tabs nav-fill">
+      <li class="nav-item">
+        <a class="nav-link" href="https://www.linkedin.com/in/heta-shah-335130194/" target="_blank">Heta</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://www.linkedin.com/in/kyla-rafferty-4a37a5152/" target="_blank">Kyla</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/CosineP" target="_blank">Luna</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://www.linkedin.com/in/simran-arora96/" target="_blank">Simran</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">This project was made in 24 hours for Hack(H)er413 2020</a>
+      </li>
+    </ul>
+    <br>
+    <img src="/static/images/hhlogo2020.jpg" class="img-thumbnail w-25 h-25" alt="Hack(H)er413 logo in light blue">
+    <hr>
+    <h1>Take Your Damn Pills!</h1>
+    <form>
+      <div class="form-group container">
+        <select class="form-control-lg" id='hours'>
+          <option>00</option>
+          <option>01</option>
+          <option>02</option>
+          <option>03</option>
+          <option>04</option>
+          <option>05</option>
+          <option>06</option>
+          <option>07</option>
+          <option>08</option>
+          <option>09</option>
+          <option>10</option>
+          <option>11</option>
+          <option>12</option>
+          <option>13</option>
+          <option>14</option>
+          <option>15</option>
+          <option>16</option>
+          <option>17</option>
+          <option>18</option>
+          <option>19</option>
+          <option>20</option>
+          <option>21</option>
+          <option>22</option>
+          <option>23</option>
+        </select>
+
+        <select class="form-control-lg" id='minutes'>
+         <option>00</option>
+          <option>01</option>
+          <option>02</option>
+          <option>03</option>
+          <option>04</option>
+          <option>05</option>
+          <option>06</option>
+          <option>07</option>
+          <option>08</option>
+          <option>09</option>
+          <option>10</option>
+          <option>11</option>
+          <option>12</option>
+          <option>13</option>
+          <option>14</option>
+          <option>15</option>
+          <option>16</option>
+          <option>17</option>
+          <option>18</option>
+          <option>19</option>
+          <option>20</option>
+          <option>21</option>
+          <option>22</option>
+          <option>23</option>
+          <option>24</option>
+          <option>25</option>
+          <option>26</option>
+          <option>27</option>
+          <option>28</option>
+          <option>29</option>
+          <option>30</option>
+          <option>31</option>
+          <option>32</option>
+          <option>33</option>
+          <option>34</option>
+          <option>35</option>
+          <option>36</option>
+          <option>37</option>
+          <option>38</option>
+          <option>39</option>
+          <option>40</option>
+          <option>41</option>
+          <option>42</option>
+          <option>43</option>
+          <option>44</option>
+          <option>45</option>
+          <option>46</option>
+          <option>47</option>
+          <option>48</option>
+          <option>49</option>
+          <option>50</option>
+          <option>51</option>
+          <option>52</option>
+          <option>53</option>
+          <option>54</option>
+          <option>55</option>
+          <option>56</option>
+          <option>57</option>
+          <option>58</option>
+          <option>59</option>
+        </select>
+
+        <button type='button' class="btn btn-primary" onClick="set_alarm()">Set Alarm</button>
+      </div>
+    </form>
+    <script language="JavaScript">
+        function set_alarm() {
+              var e1 = document.getElementById("hours");
+              var hours = e1.options[e1.selectedIndex].value;
+              var e2 = document.getElementById("minutes");
+              var min = e2.options[e2.selectedIndex].value;
+
+              data = {
+                'hours':hours,
+                'minutes':min
+              }
+                console.log(data)
+                var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+                var theUrl = "/set_alarm/";
+                xmlhttp.open("POST", theUrl);
+                xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                xmlhttp.send(JSON.stringify(data));
+
+                // window.location = "http://localhost:5000/result"      
+           
+        }
+        
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

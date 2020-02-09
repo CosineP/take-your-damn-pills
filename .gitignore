@@ -1,2 +1,5 @@
 *.hex
+__MACOSX
 *.elf
+*/.DS_Store
+*/.gcloudignore
